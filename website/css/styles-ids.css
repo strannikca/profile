@@ -1,0 +1,81 @@
+#notice {
+  opacity: 1;
+}
+
+#header-row {
+  background-color: #c0c0c0;
+  color: #202020;
+  opacity: 0.1;
+  animation-name: appear-transp;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-delay: 0s;
+}
+
+#main-row {
+  opacity: 0; /* initial opacity - final set by animation */
+
+  animation-name: appear-non-transp;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+#main-frame {
+  opacity: 0; /* initial opacity - final set by animation */
+
+  animation-name: appear-non-transp;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  animation-delay: 0s;
+}
+
+#photo {
+  width: 100%;
+}
+
+#web-image {
+  float: left;
+  margin-right: 20px;
+}
+/*@media (max-width: 575px) {
+  #photo {
+    width: 150px;
+  }
+}
+
+@media (min-width: 576px and max-width: 767px) {
+  #photo {
+    width: 300px;
+  }
+}
+
+@media (min-width: 768px and max-width: 1199px) {
+  #photo {
+    width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #photo {
+    width: 480px;
+  }
+}*/
+
+#bullets {
+  padding-top: 30px;
+
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+#nav-bg {
+  padding: 0px;
+}
+
+#head-wrapper {
+  margin-bottom: : 0px;
+}

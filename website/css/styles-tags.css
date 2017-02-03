@@ -1,0 +1,62 @@
+html {
+  min-height: 100%;
+}
+
+body {
+  background-color: #000;
+  background-image: url("../images/bg.v4.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+
+  color: #aaa;
+  /*font-size: 20px;*/
+
+  opacity: 0; /* initial opacity - final set by animation */
+
+  animation-name: appear-non-transp;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 0s;
+  animation-direction: alternate;
+
+  margin-bottom: 30px;
+}
+
+@media (max-width: 575px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+hr {
+  border-color: white;
+  width: 80%;
+}
+
+footer {
+  background-color: #101010;
+  display: block;
+  font-family: 'Catamaran', sans-serif;
+  font-size: 1em;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

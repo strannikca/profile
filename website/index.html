@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Alex Mamonov</title>
+
+    <!-- Style links -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:500|Crimson+Text|Indie+Flower|Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="css/tether/tether.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/styles-tags.css">
+    <link rel="stylesheet" href="css/styles-classes.css">
+    <link rel="stylesheet" href="css/styles-ids.css">
+
+    <!-- Script links (libs) -->
+    <script src="scripts/libs/tether/tether.min.js"></script>
+    <script src="scripts/libs/jquery-3.1.1.js"></script>
+    <script src="scripts/libs/angular.min.js"></script>
+    <script src="scripts/libs/angular-animate.min.js"></script>
+    <script src="scripts/libs/angular-ui-router.min.js"></script>
+    <script src="scripts/libs/bootstrap.min.js"></script>
+
+    <!-- Script links (custom) -->
+    <script src="scripts/module.main.js"></script>
+    <script src="scripts/data.service.js"></script>
+    <script src="scripts/menu.service.js"></script>
+    <script src="scripts/routes.js"></script>
+    <script src="scripts/loader.component.js"></script>
+    <script src="scripts/loader.controller.js"></script>
+    <script src="scripts/menu.component.js"></script>
+    <script src="scripts/menu.controller.js"></script>
+    <script src="scripts/profile.view.controller.js"></script>
+  </head>
+
+<body ng-app="main">
+
+    <ui-view></ui-view>
+
+  </body>
+</html>

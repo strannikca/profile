@@ -1,0 +1,29 @@
+@keyframes appear-transp {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 0.75;
+  }
+}
+
+@keyframes appear-non-transp {
+  from {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bg-appear {
+  from {
+    background-image: none;
+  }
+
+  to {
+    background-image: url("../images/bg.v4.jpg");
+  }
+}

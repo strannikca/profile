@@ -1,0 +1,10 @@
+<ul class="navbar-nav list-unstyled" ng-class="navCtrl.position === 'horizontal' ? 'hidden-md-up' : 'hidden-sm-down'">
+  <a ng-repeat="item in navCtrl.items" ng-if="!item.isHidden" ng-href="#{{item.url}}" ng-class="{disabled: !item.isEnabled}">
+    <li class="navtab {{::navCtrl.position}}" ng-class="{active: item.route === navCtrl.active}">
+      <h4 class="text-center navtab-text"
+          ng-class="{disabled: !item.isEnabled, vertical: navCtrl.position === 'vertical'}">
+          {{::item.name}}
+      </h4>
+    </li>
+  </a>
+</ul>
