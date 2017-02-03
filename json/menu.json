@@ -1,0 +1,36 @@
+{
+	"name": [
+		"Profile",
+		"General",
+		"Web",
+		"Game"
+	],
+	
+	"isEnabled": [
+		true,
+		false,
+		true,
+		false
+	],
+	
+	"isHidden": [
+		false,
+		true,
+		false,
+		false
+	],
+	
+	"url": [
+		"/",
+		"/general",
+		"/web",
+		"/game"
+	],
+	
+	"routing": [
+		"base.profile",
+		"base.general",
+		"base.web",
+		"base.game"
+	]
+}
