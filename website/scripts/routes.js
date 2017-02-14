@@ -15,7 +15,7 @@
       templateUrl: 'templates/base.html',
       resolve: {
         menu: ['MenuService', function (MenuService) {
-          return MenuService.getMenu();
+          return MenuService.loadMenu();
         }]
       }
     })

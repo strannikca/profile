@@ -17,17 +17,18 @@
         .then(function (success) {
           return success;
         }, function (error) {
-          return {
+          return $q.reject(
+          {
             "status": "error",
             "type": "server error"
-          }
+          });
         });
       }
       else {
-          return {
+          return $q.reject({
             "status": "error",
             "type": "Name was not provided"
-          }
+          });
       }
     }
   }

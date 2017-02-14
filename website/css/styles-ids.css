@@ -41,29 +41,7 @@
   float: left;
   margin-right: 20px;
 }
-/*@media (max-width: 575px) {
-  #photo {
-    width: 150px;
-  }
-}
 
-@media (min-width: 576px and max-width: 767px) {
-  #photo {
-    width: 300px;
-  }
-}
-
-@media (min-width: 768px and max-width: 1199px) {
-  #photo {
-    width: 400px;
-  }
-}
-
-@media (min-width: 1200px) {
-  #photo {
-    width: 480px;
-  }
-}*/
 
 #bullets {
   padding-top: 30px;
