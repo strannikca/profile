@@ -4,11 +4,13 @@
   angular.module('main')
   .config(routeConfig);
 
-  routeConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  routeConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+  function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
     // Redirect to home page if no other URL matches
     $urlRouterProvider.otherwise('/');
 
+    // Abstract state fro all pages
     $stateProvider
     .state('base', {
       abstract: true,
@@ -27,7 +29,7 @@
       controllerAs: 'profileCtrl',
       resolve: {
         bullets: ['DataService', function (DataService) {
-          return DataService.getData('profile')
+          return DataService.getData('profile', 'data')
           .then(function (result) {
             return result.data.bullets;
           }, function () {
@@ -37,9 +39,28 @@
       }
     })
 
-    .state('base.web', {
-      url: '/web',
-      templateUrl: 'templates/web.html'
+    //abstract substate for all pages, except profile
+    .state('base.tabs', {
+      abstract: true,
+      templateUrl: 'templates/tabs.html',
+      controller: 'TabsController',
+      controllerAs: 'tabsCtrl',
+      resolve: {
+        contentLinks: ['DataService', function (DataService) {
+          return DataService.getData('content', 'data')
+          .then(function (result) {
+            return result.data;
+          }, function (reject) {});
+        }]
+      }
+    })
+
+    .state('base.tabs.web', {
+      url: '/web'
+    })
+
+    .state('base.tabs.general', {
+      url: '/general'
     });
   }
 })();

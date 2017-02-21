@@ -46,7 +46,6 @@ describe("Loader controller test", function() {
 
 
 describe("Navigation controller test", function () {
-  beforeEach(module('main'));
 
   var $controller;
   var $rootScope;
@@ -55,6 +54,7 @@ describe("Navigation controller test", function () {
   var mockMenuService;
 
   beforeEach(function () {
+    module('main');
     module(function ($provide) {
       $provide.service('mockMenuService', function () {
         var service = this;
@@ -108,4 +108,62 @@ describe("Navigation controller test", function () {
     $rootScope.$broadcast('$stateChangeSuccess');
     expect(mockNavCtrl.active).toBe("route.disabled");
   });
+});
+
+//----------------
+
+describe("Tabs controller tests", function () {
+
+  var $state;
+  var deferred;
+  var $rootScope;
+  var $sanitize;
+  var tabsCtrl;
+  var mockDataService;
+
+  beforeEach(function () {
+    module('main');
+    module(function ($provide) {
+      $provide.service('mockDataService', function ($q, $rootScope) {
+        var service = this;
+        deferred = $q.defer();
+
+        service.getData = function (name) {
+          return deferred.promise;
+        }
+
+      });
+    });
+
+    inject(function (_$state_, _$rootScope_, _$sanitize_, $controller, mockDataService) {
+      $state = { current: {name: "base.tabs.active"}};
+      $rootScope = _$rootScope_;
+      $sanitize = _$sanitize_;
+      var mockContentLinks = {
+        "base.tabs.active": {
+          img: "image",
+          text: "test"
+        }
+      }
+      tabsCtrl = $controller('TabsController', {DataService: mockDataService, contentLinks: mockContentLinks, $state: $state, $rootScope: $rootScope, $sanitize: $sanitize});
+    });
+  });
+
+  it("Initialization (content links)", function () {
+    expect(tabsCtrl.contentLinks['base.tabs.active'].text).toEqual("test");
+  });
+
+  it("content loading (fail)", function () {
+    deferred.reject({type: "test error"});
+    $rootScope.$apply();
+
+    expect(tabsCtrl.text).toEqual("test error")
+  });
+
+  it("content loading (success)", function () {
+    deferred.resolve({data: "<p>test text</p>"});
+    $rootScope.$apply();
+    expect(tabsCtrl.text).toEqual("<p>test text</p>")
+  });
+
 });

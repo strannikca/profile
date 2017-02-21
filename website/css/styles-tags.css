@@ -46,6 +46,10 @@ body {
   }
 }
 
+p {
+  margin-bottom: 0.1em;
+}
+
 hr {
   border-color: white;
   width: 80%;

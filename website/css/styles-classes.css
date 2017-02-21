@@ -129,11 +129,18 @@ a.disabled {
   }
 }
 
+.description-header {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.5em;
+  color: #ddd;
+}
+
 .description {
   font-family: 'Crimson Text', serif;
   font-size: 1.3em;
   /*letter-spacing: 1px;*/
-  line-height: 33px;
+  line-height: 115%;
   margin-top: 40px;
   padding: 20px;
   text-indent: 50px;

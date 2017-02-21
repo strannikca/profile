@@ -2,6 +2,7 @@ describe("DataService test", function () {
 
   var DataService;
   var $$httpMock;
+  var $rootScope;
 
   beforeEach(function () {
 
@@ -10,20 +11,16 @@ describe("DataService test", function () {
     inject(function ($injector) {
       DataService = $injector.get('DataService');
       $httpMock = $injector.get('$httpBackend');
+      $rootScope = $injector.get('$rootScope');
     });
 
   });
-
-  afterEach(function() {
-     $httpMock.verifyNoOutstandingExpectation();
-     $httpMock.verifyNoOutstandingRequest();
-   });
 
   it("DataService successful get respond", function () {
     $httpMock.whenGET('http://alex.crystacode.com/data/test.json')
     .respond('Successful respond');
 
-    DataService.getData('test')
+    DataService.getData('test', 'data')
     .then(function(response) {
       expect(response.data).toEqual('Successful respond');
     });
@@ -35,12 +32,22 @@ describe("DataService test", function () {
     $httpMock.whenGET('http://alex.crystacode.com/data/test.json')
     .respond(400);
 
-    DataService.getData('test')
+    DataService.getData('test', 'data')
     .then(function(response) {}, function(fail) {
-      expect(fail.status).toEqual('error');
+      expect(fail.type).toEqual('Server error');
     });
 
     $httpMock.flush();
+  });
+
+  it("DataService wrong argument", function () {
+
+    DataService.getData('test')
+    .then(function(response) {}, function(fail) {
+      expect(fail.type).toEqual('Invalid input');
+    });
+
+    $rootScope.$digest();
   });
 
 });

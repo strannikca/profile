@@ -3,34 +3,39 @@
 		"Profile",
 		"General",
 		"Web",
-		"Game"
+		"Game",
+		"Mobile"
 	],
 	
 	"isEnabled": [
 		true,
-		false,
 		true,
+		true,
+		false,
 		false
 	],
 	
 	"isHidden": [
 		false,
-		true,
 		false,
-		false
+		false,
+		false,
+		true
 	],
 	
 	"url": [
 		"/",
 		"/general",
 		"/web",
-		"/game"
+		"/game",
+		"/mobile"
 	],
 	
 	"routing": [
 		"base.profile",
-		"base.general",
-		"base.web",
-		"base.game"
+		"base.tabs.general",
+		"base.tabs.web",
+		"base.tabs.game",
+		"base.tabs.mabile"
 	]
 }

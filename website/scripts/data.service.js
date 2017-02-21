@@ -4,15 +4,16 @@
   angular.module('main')
   .service('DataService', DataService);
 
-  DataService.$inject = ['DataPath', '$http', '$q'];
-  function DataService(DataPath, $http, $q) {
+  DataService.$inject = ['BasePath', '$http', '$q'];
+  function DataService(BasePath, $http, $q) {
     var service = this;
 
-    service.getData = function (name) {
-      if(name) {
+    service.getData = function (name, type) {
+      var resolvedType = resolveType(type);
+      if(name && resolvedType) {
         return $http({
           method: 'GET',
-          url: (DataPath + name + ".json")
+          url: (resolvedType.dir + name + resolvedType.ext)
         })
         .then(function (success) {
           return success;
@@ -20,15 +21,31 @@
           return $q.reject(
           {
             "status": "error",
-            "type": "server error"
+            "type": "Server error"
           });
         });
       }
       else {
           return $q.reject({
             "status": "error",
-            "type": "Name was not provided"
+            "type": "Invalid input"
           });
+      }
+    }
+
+    function resolveType(type) {
+      switch(type) {
+        case 'data': return {
+          dir: BasePath + "data/",
+          ext: ".json"
+        }
+
+        case 'template': return {
+          dir: "/templates/",
+          ext: ".html"
+        }
+
+        default: return false;
       }
     }
   }

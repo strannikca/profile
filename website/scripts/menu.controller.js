@@ -10,7 +10,7 @@
 
     $ctrl.active = $state.current.name;
     $ctrl.items = MenuService.menu;
-
+    
     $rootScope.$on('$stateChangeSuccess',
       function () {
         $ctrl.active = $state.current.name;

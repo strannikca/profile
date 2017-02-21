@@ -7,14 +7,17 @@
 
     <div id="bullets" class="col-12 col-sm-6"><!-- Bullets section -->
       <ul>
-        <li ng-repeat="bullet in profileCtrl.bullets"><h3 class="bullet">{{bullet}}</h3></li>
+        <li ng-repeat="bullet in profileCtrl.bullets"><h3 class="bullet">{{::bullet}}</h3></li>
       </ul>
     </div>
   </section>
 
   <section class="col-12 description" >
     <p>
-      Hi there! This page is intended to provide some informal information about me as a person.
+      Hi there!
+    </p>
+    <p>
+      This page is intended to provide some informal information about me as a person.
     </p>
     <hr>
     <p class="note">
