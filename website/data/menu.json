@@ -12,7 +12,7 @@
 		true,
 		true,
 		false,
-		false
+		true
 	],
 	
 	"isHidden": [
@@ -36,6 +36,6 @@
 		"base.tabs.general",
 		"base.tabs.web",
 		"base.tabs.game",
-		"base.tabs.mabile"
+		"base.tabs.mobile"
 	]
 }

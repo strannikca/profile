@@ -1,0 +1,28 @@
+{
+	"base.tabs.web": {
+		"img": {
+			"name": "web.jpg",
+			"width": 450,
+			"height": 338
+		},
+		"text": "web"
+	},
+	
+	"base.tabs.general": {
+		"img": {
+			"name": "general.jpg",
+			"width": 450,
+			"height": 261
+		},
+		"text": "general"
+	},
+	
+	"base.tabs.mobile": {
+		"img": {
+			"name": "wp.png",
+			"width": 450,
+			"height": 300
+		},
+		"text": "mobile"
+	}
+}

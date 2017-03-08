@@ -152,18 +152,4 @@ describe("Tabs controller tests", function () {
   it("Initialization (content links)", function () {
     expect(tabsCtrl.contentLinks['base.tabs.active'].text).toEqual("test");
   });
-
-  it("content loading (fail)", function () {
-    deferred.reject({type: "test error"});
-    $rootScope.$apply();
-
-    expect(tabsCtrl.text).toEqual("test error")
-  });
-
-  it("content loading (success)", function () {
-    deferred.resolve({data: "<p>test text</p>"});
-    $rootScope.$apply();
-    expect(tabsCtrl.text).toEqual("<p>test text</p>")
-  });
-
 });

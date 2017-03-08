@@ -20,6 +20,10 @@
   margin-bottom: 5px;
 }
 
+.row {
+  text-indent: 0;
+}
+
 /* Custom classes */
 .loader {
   display: block;
@@ -154,4 +158,40 @@ a.disabled {
   text-indent: 0;
   text-align: center;
   line-height: 1;
+}
+
+.app-name {
+  color: #ddd;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.95em;
+}
+
+.thumb {
+  -webkit-transition: all 0.35s ease-in-out;
+  width: 80%;
+  transition: all 0.35s ease-in-out;
+  cursor: zoom-in;
+}
+
+.thumb.zoom {
+  transform: scale(2);
+  position:relative;
+  z-index:100;
+}
+
+@media (max-width: 991px) {
+  .thumb {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .thumb.zoom {
+    transform: scale(1.5);
+  }
+
+  .store {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }

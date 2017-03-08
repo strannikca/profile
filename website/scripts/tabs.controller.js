@@ -11,6 +11,7 @@
     ctrl.text;
 
     ctrl.contentLinks = contentLinks;
+    ctrl.templateLink;
     stateChange();
 
     $rootScope.$on('$stateChangeSuccess', function () {
@@ -20,17 +21,8 @@
     function stateChange() {
       if($state.current.name.substring(0,9) === 'base.tabs' && ctrl.contentLinks) {
         ctrl.imgLink = ctrl.contentLinks[$state.current.name].img;
-        getText(ctrl.contentLinks[$state.current.name].text);
+        ctrl.templateLink = "/templates/" + ctrl.contentLinks[$state.current.name].text + '.html';
       }
-    }
-
-    function getText(view) {
-      DataService.getData(view, 'template')
-        .then(function (resolve) {
-          ctrl.text = $sanitize(resolve.data);
-        }, function (reject) {
-          ctrl.text = reject.type;
-        });
     }
 
   }

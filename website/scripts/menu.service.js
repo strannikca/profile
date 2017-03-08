@@ -13,7 +13,7 @@
 
     service.loadMenu = function () {
 
-      return DataService.getData('menu', 'data')
+      return DataService.getData('menu')
       .then(function (res) {
           var data = res.data;
           var length = data.name.length;

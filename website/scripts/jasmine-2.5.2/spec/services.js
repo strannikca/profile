@@ -17,10 +17,10 @@ describe("DataService test", function () {
   });
 
   it("DataService successful get respond", function () {
-    $httpMock.whenGET('http://alex.crystacode.com/data/test.json')
+    $httpMock.whenGET('/data/test.json')
     .respond('Successful respond');
 
-    DataService.getData('test', 'data')
+    DataService.getData('test')
     .then(function(response) {
       expect(response.data).toEqual('Successful respond');
     });
@@ -29,10 +29,10 @@ describe("DataService test", function () {
   });
 
   it("DataService unsuccessful get respond", function () {
-    $httpMock.whenGET('http://alex.crystacode.com/data/test.json')
+    $httpMock.whenGET('/data/test.json')
     .respond(400);
 
-    DataService.getData('test', 'data')
+    DataService.getData('test')
     .then(function(response) {}, function(fail) {
       expect(fail.type).toEqual('Server error');
     });
@@ -42,7 +42,7 @@ describe("DataService test", function () {
 
   it("DataService wrong argument", function () {
 
-    DataService.getData('test')
+    DataService.getData()
     .then(function(response) {}, function(fail) {
       expect(fail.type).toEqual('Invalid input');
     });

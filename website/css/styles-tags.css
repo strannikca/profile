@@ -46,6 +46,11 @@ body {
   }
 }
 
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
 p {
   margin-bottom: 0.1em;
 }

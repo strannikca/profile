@@ -29,7 +29,7 @@
       controllerAs: 'profileCtrl',
       resolve: {
         bullets: ['DataService', function (DataService) {
-          return DataService.getData('profile', 'data')
+          return DataService.getData('profile')
           .then(function (result) {
             return result.data.bullets;
           }, function () {
@@ -47,7 +47,7 @@
       controllerAs: 'tabsCtrl',
       resolve: {
         contentLinks: ['DataService', function (DataService) {
-          return DataService.getData('content', 'data')
+          return DataService.getData('content')
           .then(function (result) {
             return result.data;
           }, function (reject) {});
@@ -61,6 +61,10 @@
 
     .state('base.tabs.general', {
       url: '/general'
+    })
+
+    .state('base.tabs.mobile', {
+      url: '/mobile'
     });
   }
 })();
